@@ -1,8 +1,13 @@
 # AMR Microscopy RL Project
 
-This repository implements and compares multiple RL agents that control a simulated microscopy analysis pipeline for antimicrobial resistance (AMR) detection in E. coli under antibiotic stress.
+
+This repository implements and compares multiple Reinforcement Learning agents that control a simulated microscopy analysis pipeline for antimicrobial resistance (AMR) detection in E. coli under antibiotic stress.
+
+## 
+![Video Demo](AMR.gif)
 
 ## Problem Summary
+Design Reinforcement Learning agents that decide per-frame analysis effort under a constrained compute budget while maximizing detection performance and minimizing unnecessary computation. The environment simulates microscopy frames and trade-offs between accuracy and compute cost.
 
 The agent must decide how much analysis to run at each frame under a limited compute budget. It balances:
 

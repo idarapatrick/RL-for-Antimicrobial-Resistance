@@ -37,7 +37,7 @@ def run_random_demo(max_frames: int = 500, headless: bool = False):
     print(f"Resistance events:        {len(env.episode_data.resistance_events)}")
     print(f"Observation shape:        {obs.shape}")
     print(f"Action space:             {env.action_space}")
-    print("\nRunning... (close the window or press Ctrl+C to stop)\n")
+    print("\nAction in Progress (close the window or press Ctrl+C to stop)\n")
 
     total_reward = 0.0
     step = 0
@@ -54,7 +54,7 @@ def run_random_demo(max_frames: int = 500, headless: bool = False):
                     print("Window closed by user.")
                     return
 
-            # Random action - no model involved
+            # Random action with no model involved
             action = env.action_space.sample()
             action_counts[action] += 1
 

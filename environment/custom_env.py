@@ -1,7 +1,7 @@
 """
 Custom Gymnasium environment: AMR Microscopy Adaptive Analysis.
 
-The RL agent controls a microscopy analysis pipeline monitoring E. coli cultures
+The Reinforcement Learning agent controls a microscopy analysis pipeline monitoring E. coli cultures
 under antibiotic stress. It must allocate limited computational resources to detect
 resistance-related morphological changes while balancing:
   - Detection accuracy  (catch resistance events)
@@ -11,7 +11,7 @@ resistance-related morphological changes while balancing:
 State/observation space: biologically grounded morphological features derived from
 the DeepBacs E. coli antibiotic phenotyping dataset (Zenodo: 10.5281/zenodo.5551057)
 
-Action space: 6 discrete analysis depth levels (SKIP → ALERT_AND_DEEP)
+Action space: 6 discrete analysis depth levels (SKIP -> ALERT_AND_DEEP)
 """
 
 import numpy as np
@@ -63,16 +63,16 @@ class MicroscopyAMREnv(gym.Env):
     Adaptive microscopy resource allocation environment for AMR detection.
 
     Observation space (flat Box, shape=(23,)):
-      [0:8]   morphological_features  — cell_length_ratio, cell_width_ratio,
+      [0:8]   morphological_features  - cell_length_ratio, cell_width_ratio,
                                         filamentation_index, cell_rounding_score,
                                         vesicle_score, membrane_integrity,
                                         nucleoid_compaction, colony_density
-      [8]     anomaly_score           — weighted composite of stress indicators
-      [9]     frames_since_last_alert — normalised to [0,1]
-      [10]    compute_budget          — normalised to [0,1]
-      [11:21] recent_anomaly_history  — last 10 anomaly scores
-      [21]    colony_density          — duplicate for explicit access
-      [22]    resistance_event_active — ground truth leak? No: this is hidden.
+      [8]     anomaly_score           - weighted composite of stress indicators
+      [9]     frames_since_last_alert - normalised to [0,1]
+      [10]    compute_budget          - normalised to [0,1]
+      [11:21] recent_anomaly_history  - last 10 anomaly scores
+      [21]    colony_density          - duplicate for explicit access
+      [22]    resistance_event_active - ground truth leak? No: this is hidden.
                                         Instead: detection_confidence from last action
 
     Note: observation is a flat float32 vector (required by SB3 DQN/PPO/A2C).
@@ -255,10 +255,10 @@ class MicroscopyAMREnv(gym.Env):
         frame = self._current_frame
         current_anomaly = self._compute_anomaly_score(frame)
 
-        # Detection reward — catch resistance events
+        # Detection reward (catch resistance events)
         if is_resistance:
             if action in DETECTION_ACTIONS:
-                # Scale reward by action depth: deeper analysis = more confident detection
+                # Scale reward by action depth: deeper analysis - more confident detection
                 depth_bonus = {
                     ACTION_DEEP_ANALYSIS:    10.0,
                     ACTION_ALERT_AND_DEEP:   12.0,

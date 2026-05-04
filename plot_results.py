@@ -1,6 +1,6 @@
 """
 Generates all figures needed for the report from saved training results.
-Run this AFTER all four algorithms have finished training.
+This is run after all four algorithms have finished training.
 
 Produces:
   results/figures/01_cumulative_reward_curves.png   - all 4 algorithms subplots
@@ -117,7 +117,7 @@ def load_best_run_name(model_dir: str) -> str:
     return ""
 
 
-# Figure 1: Cumulative reward curves - all 4 algorithms
+# Cumulative reward curves (all 4 algorithms)
 
 def plot_reward_curves():
     fig, axes = plt.subplots(2, 2, figsize=(14, 9))
@@ -154,7 +154,7 @@ def plot_reward_curves():
     print(f"Saved: {out}")
 
 
-# Figure 2: DQN objective / TD-error curve
+# DQN objective / TD-error curve
 
 def plot_dqn_loss():
     results_dir, model_dir = ALGO_DIRS["DQN"]
@@ -188,7 +188,7 @@ def plot_dqn_loss():
     print(f"Saved: {out}")
 
 
-# Figure 3: Policy gradient entropy curves 
+# Policy gradient entropy curves 
 
 def plot_entropy_curves():
     fig, axes = plt.subplots(1, 3, figsize=(15, 5))
@@ -228,7 +228,7 @@ def plot_entropy_curves():
     print(f"Saved: {out}")
 
 
-# Figure 4: Convergence comparison bar chart 
+# Convergence comparison bar chart 
 
 def plot_convergence_comparison():
     algo_results = {}
@@ -289,7 +289,7 @@ def plot_convergence_comparison():
     print(f"Saved: {out}")
 
 
-# Figure 5: Hyperparameter sensitivity
+# Hyperparameter sensitivity
 
 def plot_hyperparameter_sensitivity():
     fig, axes = plt.subplots(2, 2, figsize=(14, 10))
@@ -336,7 +336,7 @@ def plot_hyperparameter_sensitivity():
     print(f"Saved: {out}")
 
 
-# Figure 6: Compute efficiency analysis 
+# Compute efficiency analysis 
 
 def plot_compute_efficiency():
     """

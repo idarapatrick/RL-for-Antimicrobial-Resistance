@@ -4,7 +4,7 @@ This demonstrates how the trained agent can be serialised and
 integrated into any frontend or production imaging pipeline.
 
 The client sends a JSON observation vector and receives an action
-decision back as JSON — no pygame, no simulator required.
+decision back as JSON.
 
 Usage:
     python api_server.py                  # starts on http://localhost:8000
@@ -45,7 +45,7 @@ import uvicorn
 from environment.custom_env import ACTION_NAMES, COMPUTE_COST
 
 app = FastAPI(
-    title="AMR Microscopy RL Agent API",
+    title="AMR Reinforcement Learning Agent API",
     description=(
         "Serves a trained reinforcement learning model that decides the optimal "
         "analysis depth for each frame in an AMR microscopy pipeline. "

@@ -32,8 +32,8 @@ GREEN_OK      = (99,  220, 140)
 
 # Action colours
 ACTION_COLOURS = {
-    0: (80,  80,  100),   # SKIP — muted
-    1: (60, 120, 180),    # QUICK_SCAN — blue
+    0: (80,  80,  100),   # SKIP - muted
+    1: (60, 120, 180),    # QUICK_SCAN - blue
     2: ACCENT_TEAL,       # MORPHO_ANALYSIS
     3: ACCENT_AMBER,      # DEEP_ANALYSIS
     4: ACCENT_CORAL,      # ALERT_AND_DEEP

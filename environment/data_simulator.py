@@ -11,10 +11,10 @@ that mimics morphological changes during antibiotic stress exposure. Resistance
 events are stochastically placed based on realistic biological timelines.
 
 Antibiotic classes and their morphological signatures:
-  CONTROL      — Normal rod-shaped E. coli, no treatment
-  DNA_DAMAGE   — Ciprofloxacin / Nalidixate: SOS response, filamentation (cell_length_ratio 2.5–4.0)
-  CELL_WALL    — Mecillinam / MP265: PBP2 inhibition, cell rounding/bloating (cell_width_ratio 1.5–2.5)
-  MEMBRANE     — Rifampicin / CAM: nucleoid compaction, vesicle formation, membrane disruption
+  CONTROL      - Normal rod-shaped E. coli, no treatment
+  DNA_DAMAGE   - Ciprofloxacin / Nalidixate: SOS response, filamentation (cell_length_ratio 2.5-4.0)
+  CELL_WALL    - Mecillinam / MP265: PBP2 inhibition, cell rounding/bloating (cell_width_ratio 1.5-2.5)
+  MEMBRANE     - Rifampicin / CAM: nucleoid compaction, vesicle formation, membrane disruption
 """
 
 import numpy as np
@@ -180,9 +180,9 @@ class AMRDataSimulator:
             n_events = int(self.rng.integers(4, 8))
             # Sample from a distribution weighted toward frames 200–900
             weights = np.concatenate([
-                np.linspace(0.1, 1.0, 400),   # frames 0–399: rising probability
-                np.ones(400) * 1.0,            # frames 400–799: plateau
-                np.linspace(1.0, 0.6, 200),    # frames 800–999: slight decline
+                np.linspace(0.1, 1.0, 400),   # frames 0-399: rising probability
+                np.ones(400) * 1.0,            # frames 400-799: plateau
+                np.linspace(1.0, 0.6, 200),    # frames 800-999: slight decline
             ])
             weights /= weights.sum()
             event_frames = self.rng.choice(
@@ -297,7 +297,7 @@ class AMRDataSimulator:
 
 
 if __name__ == "__main__":
-    # Quick sanity check — run this file directly to verify simulator output
+    # For a quick sanity check, this file is run directly to verify simulator output
     sim = AMRDataSimulator(seed=42)
     for cls in [CONTROL, DNA_DAMAGE, CELL_WALL, MEMBRANE]:
         ep = sim.generate_episode(antibiotic_class=cls)
